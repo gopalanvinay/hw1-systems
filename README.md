@@ -5,7 +5,7 @@ This project deals with empirically determining the sizes of the different cache
 ## Part 1
 In order to read random bytes of data over many iterations without adding any overhead to the measurement, I decided to first initialize a `buffer` of size i and fill it with random values, then create a vector `idxs` of indices from 0 to i-1 and shuffle their ordering at random.
 
-Inside my second loop of many iterations, I first pick a 'random index' by using `idx = idxs[j]`, and then timing a single byte read from the position `buffer[idx]`. This introduces some randomness in the byte read without employing any arithmetic or random generators which add significant overhead. I chose 2^8 as the number of iterations because that gave me the most useful and readable graph as opposed to other higher powers of 2.
+Inside my second loop of many iterations, I first pick a 'random index' by using `idx = idxs[j]`, and then time a single byte read from the position `buffer[idx]`. This introduces some randomness in the byte read without employing any arithmetic or random generators which add significant overhead. I chose 2^8 as the number of iterations because that gave me the most useful and readable graph as opposed to other higher powers of 2.
 
 ## Part 2
 A graph of latency (ns) per memory read is given in the following image:
